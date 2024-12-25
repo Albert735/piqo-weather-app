@@ -9,11 +9,11 @@ function MyTabBar({ state, descriptors, navigation }) {
   const { buildHref } = useLinkBuilder();
 
   const icons = {
-    "home/index": (props) => <Octicons name="home" size={26} {...props} />,
+    "home/index": (props) => <Octicons name="home" size={32} {...props} />,
     "explore/index": (props) => (
-      <MaterialIcons name="explore" size={26} {...props} />
+      <MaterialIcons name="explore" size={32} {...props} />
     ),
-    "search/index": (props) => <Octicons name="search" size={26} {...props} />,
+    "search/index": (props) => <Octicons name="search" size={32} {...props} />,
   };
 
   return (
@@ -61,11 +61,12 @@ function MyTabBar({ state, descriptors, navigation }) {
           >
             {IconComponent ? (
               IconComponent({
-                color: isFocused ? "#000000" : "#DBE1E3",
+                color: isFocused ? "#fff" : "#DBE1E3",
               })
             ) : (
               <Text style={{ color: "red" }}>Icon Missing</Text> // ✅ Fallback for missing icons
             )}
+            {isFocused ? <View style={styles.tabBarIndicator} /> : null}
           </PlatformPressable>
         );
       })}
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     position: "absolute",
-    bottom: 25,
+    bottom: 30,
     left: 0,
     right: 0,
     justifyContent: "space-between",
@@ -95,5 +96,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginHorizontal: 15,
     backgroundColor: "transparent",
+  },
+  tabBarIndicator: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: "red",
+    marginTop: 5,
   },
 });
