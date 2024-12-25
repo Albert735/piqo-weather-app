@@ -10,7 +10,7 @@ export default function home() {
     <SafeAreaView className="flex-1  bg-[#050505]">
       <StatusBar style="light" />
 
-      <View className=" mt-3">
+      <View className="gap-5 mt-3">
         <View className="flex flex-row items-start justify-between px-5">
           <View className="flex flex-col items-start justify-start gap-3">
             {/* date and current location */}
@@ -39,6 +39,37 @@ export default function home() {
               Thunder
             </Text>
             <Text className="text-white text-[4rem] font-bold">13°C</Text>
+          </View>
+        </View>
+
+        {/* forecast  */}
+        <View className="flex flex-row items-center justify-between px-5 mt-3">
+          <View className="flex flex-col items-center justify-center gap-3">
+            <Image
+              className="h-[4rem] w-[4rem]"
+              source={require("../../../assets/images/sun.png")}
+            />
+            <Text className="text-white text-[1rem]">Sunny</Text>
+            <Text className="text-white text-[1.2rem] font-bold">13°C</Text>
+            <Text className="text-white text-[1rem]">2:00 PM</Text>
+          </View>
+          <View className="flex flex-col items-center justify-center gap-3">
+            <Image
+              className="h-[4rem] w-[4rem]"
+              source={require("../../../assets/images/tonado.png")}
+            />
+            <Text className="text-white text-[1rem]">Windy</Text>
+            <Text className="text-white text-[1.2rem] font-bold">16°C</Text>
+            <Text className="text-white text-[1rem]">3:00 PM</Text>
+          </View>
+          <View className="flex flex-col items-center justify-center gap-3">
+            <Image
+              className="h-[4rem] w-[4rem]"
+              source={require("../../../assets/images/icon2.png")}
+            />
+            <Text className="text-white text-[1rem]">Thunder</Text>
+            <Text className="text-white text-[1.2rem] font-bold">1°C</Text>
+            <Text className="text-white text-[1rem]">4:00 PM</Text>
           </View>
         </View>
       </View>
