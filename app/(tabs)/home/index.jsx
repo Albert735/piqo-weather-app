@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, ImageBackground } from "react-native";
+import { View, Text, StatusBar, ImageBackground, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
@@ -10,7 +10,7 @@ export default function home() {
     <SafeAreaView className="flex-1  bg-[#050505]">
       <StatusBar style="light" />
 
-      <View>
+      <View className=" mt-3">
         <View className="flex flex-row items-start justify-between px-5">
           <View className="flex flex-col items-start justify-start gap-3">
             {/* date and current location */}
@@ -29,9 +29,17 @@ export default function home() {
         </View>
 
         {/* weather info  */}
-
-        <View>
-          <ImageBackground></ImageBackground>
+        <View className="flex flex-col items-center justify-between px-5 mt-3">
+          <Image
+            className="h-[20rem] w-[20rem]"
+            source={require("../../../assets/images/icon3.png")}
+          />
+          <View className="flex flex-col items-center justify-between w-full mt-3 gap-5">
+            <Text className="text-white text-[1.5rem] font-semibold">
+              Thunder
+            </Text>
+            <Text className="text-white text-[4rem] font-bold">13°C</Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
