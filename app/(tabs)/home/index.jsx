@@ -1,4 +1,11 @@
-import { View, Text, StatusBar, ImageBackground, Image } from "react-native";
+import {
+  View,
+  Text,
+  StatusBar,
+  ImageBackground,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
@@ -6,15 +13,28 @@ import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function home() {
+  const [loading, setloading] = React.useState(false);
+
+  if (loading) {
+    return (
+      <SafeAreaView className="flex-1 items-center justify-center bg-[#050505]">
+        <StatusBar style="light" />
+        <ActivityIndicator size="large" color="#fff" />
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView className="flex-1  bg-[#050505]">
       <StatusBar style="light" />
 
-      <View className="gap-5 mt-3 ">
+      <View className="gap-5 mt-3">
         <View className="flex flex-row items-start justify-between px-5">
           <View className="flex flex-col items-start justify-start gap-3">
             {/* date and current location */}
-            <Text className="text-white px-1">22, February 2021</Text>
+            <Text className="text-white px-1">
+              {new Date().toLocaleDateString()}
+            </Text>
             <View className="flex flex-row items-center gap-1">
               <EvilIcons name="location" size={22} color="white" />
               <Text className="text-white font-bold">Islambad,</Text>
@@ -51,7 +71,7 @@ export default function home() {
             />
             <Text className="text-white text-[1rem]">Sunny</Text>
             <Text className="text-white text-[1.2rem] font-bold">13°C</Text>
-            <Text className="text-white text-[1rem]">02:00 PM</Text>
+            <Text className="text-white text-[1rem]">2:00 PM</Text>
           </View>
           <View className="flex flex-col items-center justify-center gap-3">
             <Image
@@ -60,7 +80,7 @@ export default function home() {
             />
             <Text className="text-white text-[1rem]">Windy</Text>
             <Text className="text-white text-[1.2rem] font-bold">16°C</Text>
-            <Text className="text-white text-[1rem]">03:00 PM</Text>
+            <Text className="text-white text-[1rem]">3:00 PM</Text>
           </View>
           <View className="flex flex-col items-center justify-center gap-3">
             <Image
@@ -69,7 +89,7 @@ export default function home() {
             />
             <Text className="text-white text-[1rem]">Thunder</Text>
             <Text className="text-white text-[1.2rem] font-bold">1°C</Text>
-            <Text className="text-white text-[1rem]">04:00 PM</Text>
+            <Text className="text-white text-[1rem]">4:00 PM</Text>
           </View>
         </View>
       </View>
